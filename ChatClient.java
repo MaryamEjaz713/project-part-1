@@ -33,7 +33,7 @@ public class ChatClient extends JFrame {/*jframe is used for creating window*/
         setSize(450,450);/*For setting window size(length,width)*/
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);/*when window is closed it exits the program*/
 
-        chatArea = new JTextArea();/*creating text area to display messages*/
+        chatArea = new JTextArea();/* For creating text area to display messages*/
         chatArea.setEditable(false);/*text in the chat area cannot be edited*/
         JScrollPane scrollPane = new JScrollPane(chatArea);/*for scrolling chat messages*/ 
 
