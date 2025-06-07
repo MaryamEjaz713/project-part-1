@@ -67,13 +67,13 @@ public class ChatServer extends JFrame {/*jframe is used for creating window*/
                 connection (repeats for multiple clients*/  
                 appendToChat("Client connected: " + clientSocket.getInetAddress() + "\n");
 
-                PrintWriter writer = new PrintWriter(clientSocket.getOutputStream(), true);/*create writer to send
+                PrintWriter writer = new PrintWriter(clientSocket.getOutputStream(), true);/*For creating writer to send
                 messages to connected client*/ 
 
                 clientWriters.add(writer);/*For adding client writer to  the set for broadcasting messages*/   
 
                 new Thread(() -> handleClient(clientSocket, writer)).start();/*For handling each 
-                client message in a new thread*/
+                client messages in a new thread*/
             }
         } catch (IOException e) {/*For handling error if server fails*/
             appendToChat("Server error: " + e.getMessage());
@@ -108,9 +108,9 @@ public class ChatServer extends JFrame {/*jframe is used for creating window*/
     private void sendMessageToAll(String sender, String message) {
         message = message.trim();/*For removing extra spaces*/
         if (!message.isEmpty()) {/*if message is not empty */ 
-            appendToChat(sender + ": " + message); /* show in derver chat area*/
+            appendToChat(sender + ": " + message); /* show in Server chat area*/
             broadcastMessage(sender, message);/*send to all clients*/
-            inputField.setText("");/*clear input dield*/
+            inputField.setText("");/*clear input field*/
         }
     }
 
