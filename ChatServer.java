@@ -107,10 +107,10 @@ public class ChatServer extends JFrame {/*jframe is used for creating window*/
 
     private void sendMessageToAll(String sender, String message) {
         message = message.trim();/*For removing extra spaces*/
-        if (!message.isEmpty()) {/*if message is not empty then display messages in GUI Chat Area and send messages to all client*/
-            appendToChat(sender + ": " + message); 
-            broadcastMessage(sender, message);/ 
-            inputField.setText("");
+        if (!message.isEmpty()) {/*if message is not empty */ 
+            appendToChat(sender + ": " + message); /* show in derver chat area*/
+            broadcastMessage(sender, message);/*send to all clients*/
+            inputField.setText("");/*clear input dield*/
         }
     }
 
