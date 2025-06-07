@@ -5,14 +5,14 @@
 
 /**
  *
- * @author  maryam,pranjal,sanniya
+ * @author  Maryam,Pranjal,Sanniya
  */
- import javax.swing.*;/*library file used for GUI*/
+ import javax.swing.*;/*library file used for creating  GUI*/
 import java.awt.*;/*library file used for layout*/
 import java.io.*;/*library file used for input output stream*/
 import java.net.*;/*library file used for networking such as socket*/
 
-public class ChatClient extends JFrame {/*jframe is used to create window*/ 
+public class ChatClient extends JFrame {/*jframe is used for creating window*/ 
 
 /*variable declaration of GUI component*/
     private JTextArea chatArea;/*for displaying chat messages*/
@@ -26,7 +26,7 @@ public class ChatClient extends JFrame {/*jframe is used to create window*/
 
     private volatile boolean connected = false;/*for checking connection status*/
 
-     /*constructor(same name as of class)initializes object after creation*/
+     /*constructor(same name as the class)initializes object after creation*/
     public ChatClient() {
         /*for setting up the GUI*/
         setTitle("Chat Client");/* For setting window title*/
@@ -71,7 +71,7 @@ public class ChatClient extends JFrame {/*jframe is used to create window*/
                 connected = true;
 
                 String message;
-                while ((message = in.readLine()) != null) {/*read message line by line*/
+                while ((message = in.readLine()) != null) {/* for reading messages line by line*/
                     chatArea.append(message + "\n");
                 }
             } catch (IOException e) {
