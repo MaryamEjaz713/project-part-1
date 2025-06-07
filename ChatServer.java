@@ -5,7 +5,7 @@
 
 /**
  *
- * @author maryam,pranjal,sanniya
+ * @author Maryam,Pranjal,Sanniya
  */
      
 import javax.swing.*;/* library file used for  creating GUI*/
@@ -16,7 +16,7 @@ import java.net.*;/*library file used for networking(socket)*/
 import java.util.*;/*library file used for sorting and searching*/
 import java.util.concurrent.*;/*library file used for multithreading*/
 
-public class ChatServer extends JFrame {/*jframe is used to create window*/ 
+public class ChatServer extends JFrame {/*jframe is used for creating window*/ 
 
    /*variable declaration of GUI component*/  
     private  JTextArea chatArea;/*for displaying chat messages*/
@@ -29,8 +29,8 @@ public class ChatServer extends JFrame {/*jframe is used to create window*/
     
     /*constructor(same name as the class)initializes object after creation*/
     public ChatServer() {
-        setTitle("Chat Server (Multi-client)");/*set window title*/
-        setSize(400,400);/*set window size(length,width)*/
+        setTitle("Chat Server (Multi-client)");/* for setting window title*/
+        setSize(400,400);/* For setting window size(length,width)*/
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);/*when window is closed it exits the program*/
 
         chatArea = new JTextArea();/*For creating text area to display messages*/
@@ -51,7 +51,7 @@ public class ChatServer extends JFrame {/*jframe is used to create window*/
         sendButton.addActionListener(e -> sendMessageToAll("Server", inputField.getText()));
         inputField.addActionListener(e -> sendMessageToAll("Server", inputField.getText()));
        
-        /*making GUI visible and start connected to the client */
+        /* For making GUI visible and start connected to the client */
         setVisible(true);
 
         new Thread(this::startServer).start();
@@ -70,9 +70,9 @@ public class ChatServer extends JFrame {/*jframe is used to create window*/
                 PrintWriter writer = new PrintWriter(clientSocket.getOutputStream(), true);/*create writer to send
                 messages to connected client*/ 
 
-                clientWriters.add(writer);/*For add client writer to  the set for broadcasting messages*/   
+                clientWriters.add(writer);/*For adding client writer to  the set for broadcasting messages*/   
 
-                new Thread(() -> handleClient(clientSocket, writer)).start();/*handle each 
+                new Thread(() -> handleClient(clientSocket, writer)).start();/*For handling each 
                 client message in a new thread*/
             }
         } catch (IOException e) {/*For handling error if server fails*/
@@ -107,9 +107,9 @@ public class ChatServer extends JFrame {/*jframe is used to create window*/
 
     private void sendMessageToAll(String sender, String message) {
         message = message.trim();/*For removing extra spaces*/
-        if (!message.isEmpty()) {/*if message is not empty*/
-            appendToChat(sender + ": " + message);/*For displaying messages in GUI(chat area)*/
-            broadcastMessage(sender, message);/*For sending messages to all clients */
+        if (!message.isEmpty()) {/*if message is not empty then display messages in GUI Chat Area and send messages to all client*/
+            appendToChat(sender + ": " + message); 
+            broadcastMessage(sender, message);/ 
             inputField.setText("");
         }
     }
